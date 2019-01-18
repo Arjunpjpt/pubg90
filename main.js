@@ -21,11 +21,13 @@ var ctx = canvas.getContext("2d");
 AM.downloadAll(function () {
 
     var suitImg = AM.getAsset("./img/suitMan.png");
+    var suitImg2 = AM.getAsset("./img/suitMan.png");
     //var gunImg = AM.getAsset("./img/glock26.png");
     var bgImg = AM.getAsset("./img/grass.png");
 
     unMove.push(new OBJ(0,0,1400,750,0,0,1400,750,bgImg));
     player.push(new OBJ(0,0,64,64,100,100,100,100,suitImg));
+    player.push(new OBJ(0,0,64,64,100,100,100,100,suitImg2));
 });
 
 
@@ -48,12 +50,17 @@ document.addEventListener("keydown", function(event) {
         player[0].goForward(40);
 
 
-    }else if(currentEvent == 68) {
-        console.log('d is clicked');
-        //down
-        //ctx.drawImage(bl, sheetX,sheetY, 45,68,kidX,kidY,45,68);
-        //moveForward(currentEvent);
-        
+    } else if(currentEvent == 87) {
+        player[1].goForward(38);
+
+    } else if(currentEvent == 65) {
+        player[1].goForward(37);
+
+    } else if(currentEvent == 68) {
+        player[1].goForward(39);
+
+    } else if(currentEvent == 83) {
+        player[1].goForward(40);
 
     }
   })
